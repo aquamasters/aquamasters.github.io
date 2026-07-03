@@ -233,23 +233,47 @@
 
     @media(max-width:768px){
 
-      .nav-links{
-        gap:18px;
-        font-size:0.9rem;
-      }
+  .menu-toggle{
+    display:block;
+  }
 
-      h2{
-        font-size:2.2rem;
-      }
+  .nav-links{
+    position:absolute;
+    top:75px;
+    right:20px;
+    width:220px;
 
-      .hero p{
-        font-size:1rem;
-      }
+    display:none;
+    flex-direction:column;
+    gap:20px;
 
-      .contact-box{
-        padding:25px;
-      }
-    }
+    padding:25px;
+
+    background:rgba(10,15,13,0.95);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  h2{
+    font-size:2.2rem;
+  }
+
+  .hero p{
+    font-size:1rem;
+  }
+
+  .contact-box{
+    padding:25px;
+  }
+}
 
   </style>
 </head>
