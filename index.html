@@ -234,8 +234,29 @@
     @media(max-width:768px){
 
   .menu-toggle{
-    display:block;
-  }
+  display:none;
+  font-size:2.8rem;
+  color:white;
+  cursor:pointer;
+
+  width:55px;
+  height:55px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:12px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+
+  transition:0.3s;
+}
+
+.menu-toggle:hover{
+  background:rgba(0,230,118,0.15);
+  border-color:#00e676;
+}
 
   .nav-links{
     position:absolute;
