@@ -321,6 +321,42 @@ h2{
   font-size:1.1rem;
 }
 
+/* =========================================================
+   IMPRESSUM
+========================================================= */
+
+.impressum{
+  text-align:center;
+}
+
+.impressum-box{
+  max-width:900px;
+  margin:auto;
+  background:rgba(255,255,255,0.05);
+  padding:40px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,0.1);
+  position:relative;
+  z-index:2;
+  text-align:left;
+}
+
+.impressum-box h3{
+  color:#00e676;
+  margin-bottom:15px;
+  margin-top:30px;
+}
+
+.impressum-box h3:first-child{
+  margin-top:0;
+}
+
+.impressum-box p{
+  color:rgba(255,255,255,0.8);
+  line-height:1.7;
+  margin-bottom:10px;
+}
+
 footer{
   text-align:center;
   padding:30px;
@@ -410,6 +446,10 @@ footer{
   .countdown-number{
     font-size:2rem;
   }
+
+  .impressum-box{
+    padding:25px;
+  }
 }
 
 </style>
@@ -461,6 +501,12 @@ footer{
     <li>
       <a href="#kontakt">
         Kontakt
+      </a>
+    </li>
+
+    <li>
+      <a href="#impressum">
+        Impressum
       </a>
     </li>
 
@@ -806,6 +852,90 @@ Platzhalter für teilnehmende Wasser- und Abfallinstitute sowie Mannschaftsvorst
 </section>
 
 
+<!-- =====================================================
+     IMPRESSUM
+===================================================== -->
+
+<section id="impressum" class="impressum">
+
+  <h2>
+    Impressum
+  </h2>
+
+  <div class="impressum-box">
+
+    <h3>
+      Angaben gemäß § 5 DDG
+    </h3>
+
+    <p>
+      <strong>Aquamasters</strong><br>
+      Die Fußballmeisterschaft der deutschen Wasser- und Abfallinstitute
+    </p>
+
+    <p>
+      Verantwortlich für den Inhalt dieser Website:
+    </p>
+
+    <p>
+      Stephan [Nachname ergänzen]<br>
+      [Straße und Hausnummer ergänzen]<br>
+      [PLZ und Ort ergänzen]<br>
+      Deutschland
+    </p>
+
+    <h3>
+      Kontakt
+    </h3>
+
+    <p>
+      E-Mail:
+      <a
+        href="mailto:stephan@aquamasters.de"
+        style="color:#00e676;text-decoration:none;"
+      >
+        stephan@aquamasters.de
+      </a>
+    </p>
+
+    <h3>
+      Haftung für Inhalte
+    </h3>
+
+    <p>
+      Als Diensteanbieter sind wir gemäß den allgemeinen gesetzlichen
+      Vorschriften für eigene Inhalte auf dieser Website verantwortlich.
+      Eine Gewähr für die Vollständigkeit, Richtigkeit und Aktualität
+      der Inhalte kann jedoch nicht übernommen werden.
+    </p>
+
+    <h3>
+      Haftung für Links
+    </h3>
+
+    <p>
+      Diese Website kann Links zu externen Websites Dritter enthalten.
+      Auf deren Inhalte haben wir keinen Einfluss. Für die Inhalte der
+      verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
+      verantwortlich.
+    </p>
+
+    <h3>
+      Urheberrecht
+    </h3>
+
+    <p>
+      Die auf dieser Website erstellten Inhalte und Werke unterliegen
+      dem deutschen Urheberrecht. Eine Vervielfältigung, Bearbeitung,
+      Verbreitung oder sonstige Verwertung außerhalb der Grenzen des
+      Urheberrechts bedarf der Zustimmung des jeweiligen Rechteinhabers.
+    </p>
+
+  </div>
+
+</section>
+
+
 <footer>
 
   © 2026 Aquamasters –
@@ -816,7 +946,7 @@ Platzhalter für teilnehmende Wasser- und Abfallinstitute sowie Mannschaftsvorst
 
 <!-- =====================================================
      COUNTDOWN
-===================================================== -->
+========================================================= -->
 
 <script>
 
@@ -862,11 +992,6 @@ function countdownStarten(){
   const status =
     document.getElementById("turnier-status");
 
-  /*
-  Kein Datum eingetragen:
-  Countdown bleibt ausgeblendet.
-  */
-
   if(!turnierDatum){
 
     countdown.style.display = "none";
@@ -882,10 +1007,6 @@ function countdownStarten(){
     new Date(turnierDatum);
 
 
-  /*
-  Prüfen, ob ein gültiges Datum eingetragen wurde.
-  */
-
   if(isNaN(zielDatum.getTime())){
 
     countdown.style.display = "none";
@@ -896,11 +1017,6 @@ function countdownStarten(){
     return;
   }
 
-
-  /*
-  Datum ist vorhanden:
-  Countdown anzeigen.
-  */
 
   countdown.style.display = "flex";
 
@@ -916,10 +1032,6 @@ function countdownStarten(){
     const differenz =
       zielDatum.getTime() - jetzt;
 
-
-    /*
-    Turnier hat begonnen bzw. ist vorbei.
-    */
 
     if(differenz <= 0){
 
