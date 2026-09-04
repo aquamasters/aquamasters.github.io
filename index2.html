@@ -1,0 +1,1654 @@
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aquamasters – Die Fußballmeisterschaft der deutschen Wasser- und Abfallinstitute</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  background:#0a0f0d;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(15px);
+  background:rgba(0,0,0,0.45);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+nav{
+  max-width:1400px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 25px;
+}
+
+.logo{
+  font-size:1.8rem;
+  font-weight:900;
+  color:#00e676;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.logo span{
+  color:#ffffff;
+}
+
+.nav-links{
+  display:flex;
+  gap:35px;
+  list-style:none;
+}
+
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:#00e676;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.75)),
+    url("images/panorama.jpg") center center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0,230,118,0.15),
+      transparent 70%
+    );
+}
+
+.hero-content{
+  z-index:2;
+  padding:20px;
+}
+
+.hero h1{
+  font-size:clamp(3rem,8vw,6rem);
+  font-weight:900;
+  text-transform:uppercase;
+  line-height:1;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:1.2rem;
+  max-width:800px;
+  margin:auto;
+  opacity:0.9;
+  margin-bottom:40px;
+}
+
+.btn{
+  display:inline-block;
+  padding:16px 35px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:700;
+  color:white;
+  background:#00e676;
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(0,230,118,0.4);
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+  padding:100px 8%;
+  position:relative;
+}
+
+section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    );
+  background-size:60px 60px;
+  pointer-events:none;
+}
+
+h2{
+  text-align:center;
+  font-size:3rem;
+  margin-bottom:60px;
+  color:#00e676;
+}
+
+/* =========================================================
+   NÄCHSTES TURNIER
+========================================================= */
+
+.next-tournament{
+  max-width:1000px;
+  margin:0 auto 80px;
+  padding:50px 40px;
+  text-align:center;
+
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:30px;
+
+  backdrop-filter:blur(10px);
+
+  position:relative;
+  z-index:2;
+}
+
+.next-tournament h3{
+  font-size:2rem;
+  margin-bottom:15px;
+  color:white;
+}
+
+.next-tournament .status{
+  color:#00e676;
+  font-size:1.15rem;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.next-tournament .info{
+  color:rgba(255,255,255,0.75);
+  margin-bottom:30px;
+}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.countdown-item{
+  min-width:110px;
+  padding:20px 15px;
+
+  background:rgba(0,230,118,0.08);
+  border:1px solid rgba(0,230,118,0.25);
+  border-radius:18px;
+}
+
+.countdown-number{
+  display:block;
+  font-size:2.5rem;
+  font-weight:900;
+  color:#00e676;
+  line-height:1.1;
+}
+
+.countdown-label{
+  display:block;
+  margin-top:7px;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:rgba(255,255,255,0.65);
+}
+
+/* =========================================================
+   TURNIERE
+========================================================= */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  position:relative;
+  z-index:2;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:25px;
+  overflow:hidden;
+  backdrop-filter:blur(10px);
+  transition:.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  border-color:#00e676;
+  box-shadow:0 15px 40px rgba(0,230,118,0.2);
+}
+
+.card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:25px;
+}
+
+.card h3{
+  margin-bottom:15px;
+  font-size:1.5rem;
+}
+
+.card p{
+  opacity:0.8;
+  line-height:1.6;
+  white-space:pre-line;
+}
+
+/* =========================================================
+   RANGLISTE DER MEISTEN SIEGER
+========================================================= */
+
+.ranking{
+  margin-top:80px;
+  position:relative;
+  z-index:2;
+}
+
+.ranking-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.ranking-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:25px;
+  overflow:hidden;
+  text-align:center;
+  backdrop-filter:blur(10px);
+  transition:.4s;
+}
+
+.ranking-card:hover{
+  transform:translateY(-10px);
+  border-color:#00e676;
+  box-shadow:0 15px 40px rgba(0,230,118,0.2);
+}
+
+.ranking-card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+.ranking-content{
+  padding:25px;
+}
+
+.ranking-place{
+  color:#00e676;
+  font-size:1rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+.ranking-content h3{
+  font-size:1.4rem;
+  margin-bottom:10px;
+}
+
+.ranking-wins{
+  font-size:1.1rem;
+  color:rgba(255,255,255,0.75);
+}
+
+/* =========================================================
+   TURNIER-GALERIE
+========================================================= */
+
+.tournament-gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  position:relative;
+  z-index:2;
+}
+
+.gallery-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:25px;
+  overflow:hidden;
+  backdrop-filter:blur(10px);
+  transition:.4s;
+}
+
+.gallery-card:hover{
+  transform:translateY(-10px);
+  border-color:#00e676;
+  box-shadow:0 15px 40px rgba(0,230,118,0.2);
+}
+
+.gallery-card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+}
+
+.gallery-content{
+  padding:25px;
+}
+
+.gallery-content h3{
+  color:#00e676;
+  font-size:1.4rem;
+  margin-bottom:12px;
+}
+
+.gallery-content p{
+  opacity:0.8;
+  line-height:1.6;
+}
+
+/* =========================================================
+   KONTAKT
+========================================================= */
+
+.contact{
+  text-align:center;
+}
+
+.contact-box{
+  max-width:700px;
+  margin:auto;
+  background:rgba(255,255,255,0.05);
+  padding:40px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,0.1);
+  position:relative;
+  z-index:2;
+}
+
+.contact p{
+  margin:15px 0;
+  font-size:1.1rem;
+}
+
+/* =========================================================
+   IMPRESSUM
+========================================================= */
+
+.impressum{
+  text-align:center;
+}
+
+.impressum-box{
+  max-width:900px;
+  margin:auto;
+  background:rgba(255,255,255,0.05);
+  padding:40px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,0.1);
+  position:relative;
+  z-index:2;
+  text-align:left;
+}
+
+.impressum-box h3{
+  color:#00e676;
+  margin-bottom:15px;
+  margin-top:30px;
+}
+
+.impressum-box h3:first-child{
+  margin-top:0;
+}
+
+.impressum-box p{
+  color:rgba(255,255,255,0.8);
+  line-height:1.7;
+  margin-bottom:10px;
+}
+
+.impressum-box a{
+  color:#00e676;
+  text-decoration:none;
+}
+
+.impressum-box a:hover{
+  text-decoration:underline;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  color:#aaa;
+}
+
+/* =========================================================
+   MOBILE MENÜ
+========================================================= */
+
+.menu-toggle{
+  display:none;
+}
+
+@media(max-width:768px){
+
+  .menu-toggle{
+    display:flex;
+    font-size:2.8rem;
+    color:white;
+    cursor:pointer;
+
+    width:55px;
+    height:55px;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+
+    transition:.3s;
+  }
+
+  .menu-toggle:hover{
+    background:rgba(0,230,118,0.15);
+    border-color:#00e676;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:75px;
+    right:20px;
+    width:220px;
+
+    display:none;
+    flex-direction:column;
+    gap:20px;
+
+    padding:25px;
+
+    background:rgba(10,15,13,0.95);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  h2{
+    font-size:2.2rem;
+  }
+
+  .hero p{
+    font-size:1rem;
+  }
+
+  .contact-box{
+    padding:25px;
+  }
+
+  .next-tournament{
+    padding:35px 20px;
+  }
+
+  .countdown-item{
+    min-width:90px;
+  }
+
+  .countdown-number{
+    font-size:2rem;
+  }
+
+  .impressum-box{
+    padding:25px;
+  }
+
+  .ranking-cards{
+    grid-template-columns:1fr;
+  }
+
+  .ranking-card img{
+    height:230px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+  <div class="logo">
+    Aqua<span>Masters</span>
+  </div>
+
+  <div
+    class="menu-toggle"
+    onclick="document.querySelector('.nav-links').classList.toggle('active')"
+  >
+    ☰
+  </div>
+
+  <ul class="nav-links">
+
+    <li>
+      <a href="#start">
+        Startaufstellung
+      </a>
+    </li>
+
+    <li>
+      <a href="#turnier">
+        Nächstes Turnier
+      </a>
+    </li>
+
+    <li>
+      <a href="#turniere">
+        Turniere
+      </a>
+    </li>
+
+    <li>
+      <a href="#rangliste">
+        Rangliste
+      </a>
+    </li>
+
+    <li>
+      <a href="#impressionen">
+        Impressionen
+      </a>
+    </li>
+
+    <li>
+      <a href="#kontakt">
+        Kontakt
+      </a>
+    </li>
+
+    <li>
+      <a href="#impressum">
+        Impressum
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+</header>
+
+
+<!-- =====================================================
+     START
+===================================================== -->
+
+<section class="hero" id="start">
+
+  <div class="hero-content">
+
+    <h1>
+      Aquamasters
+    </h1>
+
+    <p>
+      Die Fußballmeisterschaft der deutschen Wasser- und
+      Abfallinstitute. Seit 2007 Leidenschaft, Teamgeist
+      und sportlicher Wettbewerb.
+    </p>
+
+    <a href="#turnier" class="btn">
+      Nächstes Turnier ⚽
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     NÄCHSTES TURNIER
+===================================================== -->
+
+<section id="turnier">
+
+  <h2>
+    Nächstes Turnier
+  </h2>
+
+  <div class="next-tournament">
+
+    <h3>
+      Aquamasters 2027
+    </h3>
+
+    <div id="turnier-status" class="status">
+      Termin noch nicht festgelegt
+    </div>
+
+    <p class="info">
+      Der Austragungsort bzw. das genaue Datum wird noch bekannt gegeben.
+    </p>
+
+    <div
+      id="countdown"
+      class="countdown"
+      style="display:none;"
+    >
+
+      <div class="countdown-item">
+        <span id="days" class="countdown-number">0</span>
+        <span class="countdown-label">Tage</span>
+      </div>
+
+      <div class="countdown-item">
+        <span id="hours" class="countdown-number">0</span>
+        <span class="countdown-label">Stunden</span>
+      </div>
+
+      <div class="countdown-item">
+        <span id="minutes" class="countdown-number">0</span>
+        <span class="countdown-label">Minuten</span>
+      </div>
+
+      <div class="countdown-item">
+        <span id="seconds" class="countdown-number">0</span>
+        <span class="countdown-label">Sekunden</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     TURNIERE
+===================================================== -->
+
+<section id="turniere">
+
+  <h2>
+    Turniere
+  </h2>
+
+  <div class="cards">
+
+    <div class="card">
+
+      <img
+        src="images/am18.jpg"
+        alt="Turnierbild"
+      >
+
+      <div class="card-content">
+
+        <h3>
+          Turniere
+        </h3>
+
+        <p>
+Jahr / Austragungsort / Sieger
+
+2007: Aachen / FC Turbnie Wasserbau Aachen
+2008: Karlsruhe / Kneipp Kicker Karlsruhe
+2009: Berlin / 1. FC Turbine Testfilter Berlin
+2010: Stuttgart / Anker München
+2011: München / Anker München
+2012: Hamburg / 2. FC Turbine Testfilter Berlin
+2013: Berlin / Kupferbolzer 05 Aachen
+2014: Aachen / Sielkicker Hamburg
+2015: Hamburg / 1. FC Turbine Testfilter Berlin
+2016: Karlsruhe / Kupferbolzer 05 Aachen
+2017: Aachen / Kupferbolzer 05 Aachen
+2018: Bochum / Spielgemeinschaft Ball Akrobaten Wasserbau / Ballsportfreunde Gewässerkunde
+2019: Koblenz / Kupferbolzer 05 Aachen
+2020: Ausfall
+2021: Ausfall
+2022: Ausfall
+2023: Darmstadt / TZW Karlsruhe
+2024: Karlsruhe / TUBA TU Berlin + Umweltbundesamt
+2025: Berlin / Berliner Wasserbetriebe (BWB)
+2026: Rostock / Rostocker Möwenschubser
+2027: …..
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <img
+        src="images/am07.jpg"
+        alt="Historisches Aquamasters-Turnier"
+      >
+
+      <div class="card-content">
+
+        <h3>
+          Tradition & Geschichte
+        </h3>
+
+        <p>
+Die „Aquamasters“ sind ein jährliches Fußballturnier von Instituten und Hochschulen aus dem Bereich Wasserwirtschaft, Siedlungswasserwirtschaft und Abfalltechnik im deutschsprachigen Raum.
+
+Es dient sowohl dem sportlichen Wettbewerb als auch dem persönlichen Kennenlernen und Austausch zwischen Forschenden, Studierenden und Mitarbeitenden dieser Einrichtungen.
+
+Das Turnier existiert seit 2007, wo es erstmalig in Aachen stattfand. Seitdem wird es jedes Jahr – nur unterbrochen von einer Coronapause – von einer anderen Hochschule oder Einrichtung, in der Regel dem Vorjahressieger, ausgerichtet.
+
+Damit sind die Aquamasters zu einem traditionsreichen Freizeit- und Netzwerkevent der Wasser- und Umweltforschung mit einem Fußballturnier als Mittelpunkt avanciert.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <img
+        src="images/sieger.jpg"
+        alt="Sieger der Aquamasters"
+      >
+
+      <div class="card-content">
+
+        <h3>
+          Teams & Institute
+        </h3>
+
+        <p>
+Teilnehmende Wasser- und Abfallinstitute sowie Mannschaftsvorstellungen können hier ergänzt werden.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     RANGLISTE
+===================================================== -->
+
+<section id="rangliste">
+
+  <h2>
+    Rangliste der meisten Sieger
+  </h2>
+
+  <div class="ranking">
+
+    <div class="ranking-cards">
+
+      <!-- PLATZ 1 -->
+
+      <div class="ranking-card">
+
+        <img
+          src="images/rangliste1.jpg"
+          alt="Platz 1 – Siegerteam"
+        >
+
+        <div class="ranking-content">
+
+          <div class="ranking-place">
+            Platz 1
+          </div>
+
+          <h3>
+            Kupferbolzer 05 Aachen
+          </h3>
+
+          <div class="ranking-wins">
+            5 Siege
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PLATZ 2 -->
+
+      <div class="ranking-card">
+
+        <img
+          src="images/rangliste2.jpg"
+          alt="Platz 2 – Siegerteam"
+        >
+
+        <div class="ranking-content">
+
+          <div class="ranking-place">
+            Platz 2
+          </div>
+
+          <h3>
+            1. FC Turbine Testfilter Berlin
+          </h3>
+
+          <div class="ranking-wins">
+            3 Siege
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PLATZ 3 -->
+
+      <div class="ranking-card">
+
+        <img
+          src="images/rangliste3.jpg"
+          alt="Platz 3 – Siegerteam"
+        >
+
+        <div class="ranking-content">
+
+          <div class="ranking-place">
+            Platz 3
+          </div>
+
+          <h3>
+            Anker München
+          </h3>
+
+          <div class="ranking-wins">
+            2 Siege
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     TURNIER-GALERIE
+===================================================== -->
+
+<section id="impressionen">
+
+  <h2>
+    Turnier-Galerie seit 2007
+  </h2>
+
+  <div class="tournament-gallery">
+
+
+    <!-- 2007 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2007.jpg" alt="Aquamasters 2007 Aachen">
+
+      <div class="gallery-content">
+
+        <h3>2007 – Aachen</h3>
+
+        <p>
+          Das erste Aquamasters-Turnier fand 2007 in Aachen statt.
+          Damit wurde der Grundstein für die heutige Tradition des
+          Turniers gelegt.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2008 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2008.jpg" alt="Aquamasters 2008 Karlsruhe">
+
+      <div class="gallery-content">
+
+        <h3>2008 – Karlsruhe</h3>
+
+        <p>
+          2008 wurde das Turnier in Karlsruhe ausgetragen.
+          Die Aquamasters entwickelten sich weiter zu einem
+          regelmäßigen Treffen der Institute.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2009 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2009.jpg" alt="Aquamasters 2009 Berlin">
+
+      <div class="gallery-content">
+
+        <h3>2009 – Berlin</h3>
+
+        <p>
+          Die Aquamasters gastierten 2009 in Berlin und setzten
+          die junge Turniertradition fort.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2010 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2010.jpg" alt="Aquamasters 2010 Stuttgart">
+
+      <div class="gallery-content">
+
+        <h3>2010 – Stuttgart</h3>
+
+        <p>
+          2010 führte das Turnier nach Stuttgart. Sportlicher
+          Wettbewerb und gemeinsames Netzwerken standen erneut
+          im Mittelpunkt.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2011 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2011.jpg" alt="Aquamasters 2011 München">
+
+      <div class="gallery-content">
+
+        <h3>2011 – München</h3>
+
+        <p>
+          München war 2011 Austragungsort der Aquamasters.
+          Anker München konnte das Turnier für sich entscheiden.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2012 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2012.jpg" alt="Aquamasters 2012 Hamburg">
+
+      <div class="gallery-content">
+
+        <h3>2012 – Hamburg</h3>
+
+        <p>
+          2012 fand das Turnier in Hamburg statt. Die Mannschaften
+          trafen sich erneut zu Fußball, Austausch und gemeinsamer
+          Zeit abseits des Institutsalltags.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2013 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2013.jpg" alt="Aquamasters 2013 Berlin">
+
+      <div class="gallery-content">
+
+        <h3>2013 – Berlin</h3>
+
+        <p>
+          Berlin war 2013 erneut Gastgeber. Die Kupferbolzer 05
+          Aachen holten den Turniersieg.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2014 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2014.jpg" alt="Aquamasters 2014 Aachen">
+
+      <div class="gallery-content">
+
+        <h3>2014 – Aachen</h3>
+
+        <p>
+          2014 kehrten die Aquamasters nach Aachen zurück.
+          Sieger wurden die Sielkicker Hamburg.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2015 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2015.jpg" alt="Aquamasters 2015 Hamburg">
+
+      <div class="gallery-content">
+
+        <h3>2015 – Hamburg</h3>
+
+        <p>
+          Hamburg war 2015 erneut Schauplatz des Turniers.
+          Der 1. FC Turbine Testfilter Berlin gewann den Wettbewerb.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2016 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2016.jpg" alt="Aquamasters 2016 Karlsruhe">
+
+      <div class="gallery-content">
+
+        <h3>2016 – Karlsruhe</h3>
+
+        <p>
+          2016 ging es wieder nach Karlsruhe. Die Kupferbolzer 05
+          Aachen konnten den Turniersieg erringen.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2017 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2017.jpg" alt="Aquamasters 2017 Aachen">
+
+      <div class="gallery-content">
+
+        <h3>2017 – Aachen</h3>
+
+        <p>
+          2017 wurde erneut in Aachen gespielt. Die Kupferbolzer 05
+          Aachen verteidigten ihre starke Position und gewannen.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2018 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2018.jpg" alt="Aquamasters 2018 Bochum">
+
+      <div class="gallery-content">
+
+        <h3>2018 – Bochum</h3>
+
+        <p>
+          2018 fand das Turnier in Bochum statt. Eine Spielgemeinschaft
+          aus Ball Akrobaten Wasserbau und Ballsportfreunden
+          Gewässerkunde gewann den Wettbewerb.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2019 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2019.jpg" alt="Aquamasters 2019 Koblenz">
+
+      <div class="gallery-content">
+
+        <h3>2019 – Koblenz</h3>
+
+        <p>
+          Koblenz war 2019 Gastgeber der Aquamasters.
+          Die Kupferbolzer 05 Aachen konnten erneut den Titel holen.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2020 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2020.jpg" alt="Aquamasters 2020">
+
+      <div class="gallery-content">
+
+        <h3>2020 – Ausfall</h3>
+
+        <p>
+          Das Aquamasters-Turnier konnte 2020 aufgrund der
+          Corona-Pandemie nicht stattfinden.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2021 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2021.jpg" alt="Aquamasters 2021">
+
+      <div class="gallery-content">
+
+        <h3>2021 – Ausfall</h3>
+
+        <p>
+          Auch 2021 musste das Turnier aufgrund der
+          Corona-Pandemie erneut ausfallen.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2022 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2022.jpg" alt="Aquamasters 2022">
+
+      <div class="gallery-content">
+
+        <h3>2022 – Ausfall</h3>
+
+        <p>
+          2022 fand ebenfalls kein Aquamasters-Turnier statt.
+          Nach der pandemiebedingten Unterbrechung sollte die
+          Tradition anschließend wieder aufgenommen werden.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2023 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2023.jpg" alt="Aquamasters 2023 Darmstadt">
+
+      <div class="gallery-content">
+
+        <h3>2023 – Darmstadt</h3>
+
+        <p>
+          2023 kehrten die Aquamasters zurück. In Darmstadt wurde
+          das Turnier wieder aufgenommen. Sieger wurde das TZW Karlsruhe.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2024 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2024.jpg" alt="Aquamasters 2024 Karlsruhe">
+
+      <div class="gallery-content">
+
+        <h3>2024 – Karlsruhe</h3>
+
+        <p>
+          2024 fand das Turnier in Karlsruhe statt.
+          TUBA TU Berlin und das Umweltbundesamt konnten gemeinsam
+          den Titel gewinnen.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2025 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2025.jpg" alt="Aquamasters 2025 Berlin">
+
+      <div class="gallery-content">
+
+        <h3>2025 – Berlin</h3>
+
+        <p>
+          2025 kehrten die Aquamasters nach Berlin zurück.
+          Die Berliner Wasserbetriebe gewannen das Turnier.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2026 -->
+
+    <div class="gallery-card">
+
+      <img src="images/2026.jpg" alt="Aquamasters 2026 Rostock">
+
+      <div class="gallery-content">
+
+        <h3>2026 – Rostock</h3>
+
+        <p>
+          2026 wurde in Rostock gespielt. Die Rostocker Möwenschubser
+          sicherten sich den Turniersieg.
+        </p>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     KONTAKT
+===================================================== -->
+
+<section id="kontakt" class="contact">
+
+  <h2>
+    Kontakt
+  </h2>
+
+  <div class="contact-box">
+
+    <p>
+      📧 stephan@aquamasters.de
+    </p>
+
+    <p>
+      📍 Deutschland
+    </p>
+
+    <p>
+      ⚽ Fußball, Wasser- und Abfallwirtschaft.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     IMPRESSUM
+===================================================== -->
+
+<section id="impressum" class="impressum">
+
+  <h2>
+    Impressum
+  </h2>
+
+  <div class="impressum-box">
+
+    <h3>
+      Angaben gemäß § 5 DDG
+    </h3>
+
+    <p>
+      <strong>Aquamasters</strong><br>
+      Die Fußballmeisterschaft der deutschen Wasser- und Abfallinstitute
+    </p>
+
+    <p>
+      Verantwortlich für den Inhalt dieser Website:
+    </p>
+
+    <p>
+      Stephan Köster<br>
+      Goldener Winkel 9<br>
+      30989 Gehrden<br>
+      Deutschland
+    </p>
+
+    <h3>
+      Kontakt
+    </h3>
+
+    <p>
+      E-Mail:
+      <a href="mailto:stephan@aquamasters.de">
+        stephan@aquamasters.de
+      </a>
+    </p>
+
+    <h3>
+      Haftung für Inhalte
+    </h3>
+
+    <p>
+      Als Diensteanbieter sind wir gemäß den allgemeinen gesetzlichen
+      Vorschriften für eigene Inhalte auf dieser Website verantwortlich.
+      Eine Gewähr für die Vollständigkeit, Richtigkeit und Aktualität
+      der Inhalte kann jedoch nicht übernommen werden.
+    </p>
+
+    <h3>
+      Haftung für Links
+    </h3>
+
+    <p>
+      Diese Website kann Links zu externen Websites Dritter enthalten.
+      Auf deren Inhalte haben wir keinen Einfluss. Für die Inhalte der
+      verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
+      verantwortlich.
+    </p>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  © 2026 Aquamasters –
+  Die Fußballmeisterschaft der deutschen Wasser- und Abfallinstitute
+
+</footer>
+
+
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<script>
+
+/*
+===========================================================
+NÄCHSTES TURNIER
+
+SOLANGE KEIN DATUM FESTSTEHT:
+
+    const turnierDatum = null;
+
+erscheint kein Countdown.
+
+SOBALD DAS DATUM FESTSTEHT:
+
+    const turnierDatum = "2027-09-18T10:00:00";
+
+Datum und Uhrzeit einfach hier eintragen.
+
+Format:
+YYYY-MM-DDTHH:MM:SS
+===========================================================
+*/
+
+const turnierDatum = null;
+
+
+/*
+===========================================================
+COUNTDOWN-FUNKTION
+===========================================================
+*/
+
+function countdownStarten(){
+
+  const countdown =
+    document.getElementById("countdown");
+
+  const status =
+    document.getElementById("turnier-status");
+
+
+  if(!turnierDatum){
+
+    countdown.style.display = "none";
+
+    status.textContent =
+      "Termin noch nicht festgelegt";
+
+    return;
+  }
+
+
+  const zielDatum =
+    new Date(turnierDatum);
+
+
+  if(isNaN(zielDatum.getTime())){
+
+    countdown.style.display = "none";
+
+    status.textContent =
+      "Termin noch nicht festgelegt";
+
+    return;
+  }
+
+
+  countdown.style.display = "flex";
+
+  status.textContent =
+    "Der Countdown läuft";
+
+
+  function aktualisieren(){
+
+    const jetzt =
+      new Date().getTime();
+
+    const differenz =
+      zielDatum.getTime() - jetzt;
+
+
+    if(differenz <= 0){
+
+      document.getElementById("days").textContent = "0";
+      document.getElementById("hours").textContent = "0";
+      document.getElementById("minutes").textContent = "0";
+      document.getElementById("seconds").textContent = "0";
+
+      status.textContent =
+        "Das Turnier hat begonnen! ⚽";
+
+      clearInterval(timer);
+
+      return;
+    }
+
+
+    const tage =
+      Math.floor(
+        differenz /
+        (1000 * 60 * 60 * 24)
+      );
+
+
+    const stunden =
+      Math.floor(
+        (differenz /
+        (1000 * 60 * 60)) % 24
+      );
+
+
+    const minuten =
+      Math.floor(
+        (differenz /
+        (1000 * 60)) % 60
+      );
+
+
+    const sekunden =
+      Math.floor(
+        (differenz /
+        1000) % 60
+      );
+
+
+    document.getElementById("days").textContent =
+      tage;
+
+    document.getElementById("hours").textContent =
+      stunden;
+
+    document.getElementById("minutes").textContent =
+      minuten;
+
+    document.getElementById("seconds").textContent =
+      sekunden;
+
+  }
+
+
+  aktualisieren();
+
+
+  const timer =
+    setInterval(
+      aktualisieren,
+      1000
+    );
+
+}
+
+
+/*
+===========================================================
+COUNTDOWN STARTEN
+===========================================================
+*/
+
+countdownStarten();
+
+</script>
+
+</body>
+</html>
+```
